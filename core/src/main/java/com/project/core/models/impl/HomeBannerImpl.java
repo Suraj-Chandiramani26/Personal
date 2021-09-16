@@ -18,20 +18,17 @@ import javax.inject.Inject;
     )
     public class HomeBannerImpl implements HomeBanner {
         @Inject
-        @Default(values = "This is me")
         String myfirsttext;
 
         @Inject
-        @Default(values = "Philip Gilbert")
         String mysecondtext;
 
         @Inject
-        @Default(values = "You will begin to realise why this exercise is called the Dickens Pattern with reference to the ghost showing Scrooge some different futures.\n")
         String multilinefield;
 
         @Inject
-        @Default(values = "Discover Now")
         String button;
+
 
         @ValueMapValue
         String fileReference;
@@ -57,6 +54,11 @@ import javax.inject.Inject;
         @Override
         public String getButton() {
             return button;
+        }
+
+        @Override
+        public String getPath(){
+            return path;
         }
 
         @Override

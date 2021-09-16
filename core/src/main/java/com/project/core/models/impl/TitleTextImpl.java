@@ -5,6 +5,7 @@ import org.apache.sling.api.resource.Resource;
 import org.apache.sling.models.annotations.Default;
 import org.apache.sling.models.annotations.DefaultInjectionStrategy;
 import org.apache.sling.models.annotations.Model;
+import org.apache.sling.models.annotations.injectorspecific.ValueMapValue;
 
 import javax.inject.Inject;
 
@@ -17,12 +18,16 @@ import javax.inject.Inject;
 public class TitleTextImpl implements TitleText{
 
     @Inject
-    @Default(values = "title")
     String title;
 
     @Inject
-    @Default(values = "At about this time of the year, some months after new year a resolution has been made")
     String info;
+
+    @ValueMapValue
+    Boolean paddingbottom;
+
+    @ValueMapValue
+    Boolean sectiongap;
 
     @Override
     public String getTitle(){
@@ -32,5 +37,15 @@ public class TitleTextImpl implements TitleText{
     @Override
     public String getInfo(){
         return info;
+    }
+
+    @Override
+    public Boolean getSectionGap(){
+        return sectiongap;
+    }
+
+    @Override
+    public Boolean getPaddingBottom(){
+        return paddingbottom;
     }
 }

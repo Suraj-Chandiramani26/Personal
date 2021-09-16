@@ -1,64 +1,49 @@
 package com.project.core.models.impl;
 import com.project.core.models.HomeAbout;
-import org.apache.sling.api.SlingHttpServletRequest;
+import com.project.core.models.HomeAbout;
 import org.apache.sling.api.resource.Resource;
-import org.apache.sling.models.annotations.Default;
 import org.apache.sling.models.annotations.DefaultInjectionStrategy;
 import org.apache.sling.models.annotations.Model;
 import org.apache.sling.models.annotations.injectorspecific.ValueMapValue;
-
 import javax.inject.Inject;
-@Model(
-        adaptables = Resource.class,
-        adapters = HomeAbout.class,
-//resourceType =HomeAbout.RESOURCE_TYPE,
-        defaultInjectionStrategy = DefaultInjectionStrategy.OPTIONAL
-)
-public class HomeAboutImpl implements HomeAbout{
+@Model(adaptables = Resource.class,adapters = HomeAbout.class,defaultInjectionStrategy = DefaultInjectionStrategy.OPTIONAL)
+public class HomeAboutImpl implements HomeAbout {
     @Inject
-    @Default(values = "About Me")
-    String myfirsttext;
-
+    String path;
     @Inject
-    @Default(values = " Personal Details")
-    String secondtext;
-
+    String bio;
     @Inject
-    @Default(values = "Here, I focus on a range of items and features that we use in life without giving them a second thought. such as Coca Cola. Dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco.\n" )
-    String multilinefield;
-
+    String details;
     @Inject
-    @Default(values = "View Full Details")
+    String intro;
+    @Inject
     String button;
-
     @ValueMapValue
     String fileReference;
 
-    @Override
-    public String getAbout() {
-        return myfirsttext;
-    }
 
+    @Override
+    public String getBio() {
+        return bio;
+    }
     @Override
     public String getDetails() {
-        return secondtext;
+        return details;
     }
-
     @Override
     public String getIntro() {
-        return multilinefield;
+        return intro;
     }
-
     @Override
     public String getButton() {
         return button;
     }
-
     @Override
     public String getImage() {
         return fileReference;
     }
-
-    //final protected static String RESOURCE_TYPE="";
+    @Override
+    public String getPath() {
+        return path;
+    }
 }
-
